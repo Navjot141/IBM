@@ -1,0 +1,12 @@
+<mat-grid-list *ngIf="!!this.productDetail" cols="2" rowHeight="50px">
+    <mat-grid-tile><b>Blend Name</b></mat-grid-tile>
+    <mat-grid-tile>{{productDetail.blend_name}}</mat-grid-tile>
+    <mat-grid-tile><b>Origin</b></mat-grid-tile>
+    <mat-grid-tile>{{productDetail.origin}}</mat-grid-tile>
+    <mat-grid-tile><b>Variety</b></mat-grid-tile>
+    <mat-grid-tile>{{productDetail.variety}}</mat-grid-tile>
+    <mat-grid-tile><b>Notes</b></mat-grid-tile>
+    <mat-grid-tile>{{productDetail.notes}}</mat-grid-tile>
+    <mat-grid-tile><b>Intensifier</b></mat-grid-tile>
+    <mat-grid-tile>{{productDetail.intensifier}}</mat-grid-tile>
+</mat-grid-list>

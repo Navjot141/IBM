@@ -1,6 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer/footer.component';
+import { HeaderComponent } from './header/header/header.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +12,10 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        ProductListComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +32,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('IbmTestProject');
   });
 
-  it('should render title', () => {
+  it('should display the header text "Products"', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('IbmTestProject app is running!');
-  });
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Products');
+  }));
+
 });

@@ -1,0 +1,33 @@
+<div class="table-content-box">
+  <div class="addProductButton">
+  <button mat-raised-button routerLink="/add">Add Product</button>
+  </div>
+  
+  <mat-paginator *ngIf="!!this.products" #paginator [length]="this.products.length" [pageSize]="pagesize"  
+  [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+  <div class="table-container" *ngIf="!!this.products">
+
+  <table mat-table [dataSource]="dataSource" matSort matSortDisableClear="true">
+
+    <ng-container matColumnDef="blend_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Blend Name</th>
+      <td mat-cell *matCellDef="let product">{{product.blend_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="origin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Origin</th>
+      <td mat-cell *matCellDef="let product"> {{product.origin }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="variety">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Variety</th>
+      <td mat-cell *matCellDef="let product">{{product.variety}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></tr>
+      <tr (click) ="goToDetailsPage(row)" class="highlight-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+</div>
